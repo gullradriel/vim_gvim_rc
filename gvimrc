@@ -2,7 +2,7 @@
 set nocompatible                                  " désactivation de la compatibilité avec vi
 set background=dark                               " fond sombre
 colorscheme koehler                               " couleur
-syntax enable                                     " activation de la coloration syntaxique
+syntax on                                         " activation de la coloration syntaxique
 set number                                        " numérotation des lignes
 set autoindent                                    " indentation automatique avancée
 set smartindent                                   " indentation plus intelligente
@@ -14,9 +14,12 @@ set showcmd                                       " affiche la commande en cours
 set shiftwidth=4                                  " nombre de tabulation pour l'indentation
 set tabstop=4									  " nombre d'espace pour une tabulation
 set showmatch                                     " vérification présence ([ ou { à la frappe de )] ou }
-filetype plugin indent on                         " détection automatique du type de fichier
+filetype on 								      " Enable type file detection. Vim will be able to try to detect the type of file in use.
+filetype plugin on                                " Enable plugins and load plugin for the detected file type.
+filetype indent on                                " Load an indent file for the detected file type.
+
 set fileformats=unix,mac,dos                      " gestion des retours chariot en fonction du type de fichier
-set viewdir=~/.vim/saveview/             " répertoire pour sauvegarder les vues, utiles pour les replis manuels
+set viewdir=~/.vim/saveview/                      " répertoire pour sauvegarder les vues, utiles pour les replis manuels
 set cursorline                                    " afficher la ligne courante
 hi CursorLine guibg=#4d4d4d                       " couleur de fond pour la ligne courante
 set foldcolumn=2                                  " repère visuel pour les folds
@@ -30,13 +33,13 @@ set guifont=Monospace\ Regular\ 14                " police de caractère
 
 set nolist					                      " on n'affiche pas les caractères non imprimables
 
+set lazyredraw									  " quicker display	
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "Mapping pour désactiver le surlignage des
 "résultats d'une recherche
 """"""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <C-N> :noh<CR>
-
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "Mapping pour naviguer dans les lignes coupées
@@ -45,8 +48,6 @@ map <A-DOWN> gj
 map <A-UP> gk
 imap <A-UP> <ESC>gki
 imap <A-DOWN> <ESC>gkj
-
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "Repositionner le curseur à l'emplacement de la
