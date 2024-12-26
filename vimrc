@@ -105,3 +105,8 @@ endfunc
 " don't use tag and don't follow input files
 set complete-=t
 set complete-=i
+
+" Highlight non-breaking spaces
+set list
+set listchars=nbsp:␣,tab:>·,trail:·
+highlight NonText ctermfg=red
